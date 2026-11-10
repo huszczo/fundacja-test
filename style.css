@@ -1,0 +1,1463 @@
+ :root {
+     --ivory: #f7f4ed;
+     --paper: #fffdf8;
+     --burgundy: #641f2b;
+     --burgundy-dark: #42151d;
+     --gold: #ae9560;
+     --ink: #262321;
+     --muted: #6e655c;
+     --serif: "Cormorant Garamond", Georgia, serif;
+     --sans: "Source Sans 3", Arial, sans-serif
+ }
+
+ * {
+     box-sizing: border-box
+ }
+
+ html {
+     scroll-behavior: smooth
+ }
+
+ body {
+     margin: 0;
+     background: var(--ivory);
+     color: var(--ink);
+     font-family: var(--sans);
+     font-size: 17px;
+     line-height: 1.6
+ }
+
+ a {
+     color: inherit;
+     text-decoration: none
+ }
+
+ .container {
+     width: min(1160px, calc(100% - 48px));
+     margin: auto
+ }
+
+ .skip-link {
+     position: absolute;
+     left: -9999px
+ }
+
+ .skip-link:focus {
+     left: 12px;
+     top: 12px;
+     background: #fff;
+     padding: 12px;
+     z-index: 99
+ }
+
+ .site-header {
+     background: rgba(255, 253, 248, .97);
+     position: sticky;
+     top: 0;
+     z-index: 20;
+     border-bottom: 1px solid rgba(174, 149, 96, .28)
+ }
+
+ .header-inner {
+     min-height: 88px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 30px
+ }
+
+ .brand {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     color: var(--burgundy);
+     font: 500 20px/1.02 var(--serif);
+     letter-spacing: .02em;
+     white-space: nowrap
+ }
+
+ .brand-name strong {
+     font-weight: 700
+ }
+
+ .brand-seal {
+     width: 43px;
+     height: 43px;
+     background-image: url(Photos/logo.png);
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: contain;
+     display: grid;
+     place-items: center;
+     font-size: 25px;
+     color: var(--gold)
+ }
+
+ .main-nav {
+     display: flex;
+     align-items: center;
+     gap: clamp(12px, 2vw, 28px);
+     font-size: 15px
+ }
+
+ .main-nav>a:not(.button) {
+     padding: 10px 0;
+     position: relative
+ }
+
+ .main-nav>a:not(.button):hover:after {
+     content: "";
+     position: absolute;
+     bottom: 2px;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: var(--gold)
+ }
+
+ .menu-toggle {
+     display: none
+ }
+
+ .button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 16px;
+     background: var(--burgundy);
+     color: #fffdf8;
+     padding: 13px 22px;
+     border: 1px solid var(--gold);
+     border-radius: 4px;
+     text-transform: uppercase;
+     letter-spacing: .045em;
+     font-size: 13px;
+     font-weight: 700;
+     transition: .2s
+ }
+
+ .button:hover {
+     background: var(--burgundy-dark);
+     transform: translateY(-1px)
+ }
+
+ .button-small {
+     padding: 11px 17px
+ }
+
+ .button-outline {
+     background: transparent;
+     border-color: #eee2c9;
+     color: #fff
+ }
+
+ .button-light {
+     background: transparent;
+     color: var(--burgundy);
+     border-color: var(--gold)
+ }
+
+ .button-cream {
+     background: var(--ivory);
+     color: var(--burgundy);
+     border-color: var(--ivory)
+ }
+
+ .hero {
+     min-height: 570px;
+     position: relative;
+     display: flex;
+     align-items: center;
+     color: #fff
+ }
+
+ .hero-image,
+ .hero-shade {
+     position: absolute;
+     inset: 0
+ }
+
+ .hero-image {
+     background: url("https://fundacjapiusaix.pl/wp-content/uploads/2023/03/missa.jpg") center/cover no-repeat
+ }
+
+ .hero-shade {
+     background: linear-gradient(90deg, rgba(24, 20, 17, .88), rgba(24, 20, 17, .62) 42%, rgba(24, 20, 17, .06) 100%)
+ }
+
+ .hero-content {
+     position: relative;
+     padding: 85px 0;
+     max-width: 1160px
+ }
+
+ .eyebrow {
+     text-transform: uppercase;
+     letter-spacing: .17em;
+     color: var(--gold);
+     font-size: 12px;
+     font-weight: 700;
+     margin: 0 0 12px
+ }
+
+ .eyebrow.light {
+     color: #d7bd86
+ }
+
+ .hero h1 {
+     font: 500 clamp(48px, 6vw, 76px)/.94 var(--serif);
+     margin: 0 0 20px;
+     max-width: 700px
+ }
+
+ .ornament {
+     display: block;
+     color: #d0ad65;
+     letter-spacing: .2em;
+     margin: 16px 0
+ }
+
+ .hero-copy {
+     font: 400 22px/1.35 var(--serif);
+     max-width: 510px;
+     margin: 0 0 26px
+ }
+
+ .hero-actions {
+     display: flex;
+     gap: 14px;
+     flex-wrap: wrap
+ }
+
+ .section {
+     padding: 76px 0
+ }
+
+ .section-heading {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 24px;
+     text-align: center;
+     margin-bottom: 24px;
+     position: relative
+ }
+
+ .section-heading h2,
+ .patron h2,
+ .support h2,
+ .about h2 {
+     font: 500 clamp(34px, 4vw, 48px)/1 var(--serif);
+     text-transform: uppercase;
+     letter-spacing: .04em;
+     color: var(--burgundy);
+     margin: 0
+ }
+
+ .heading-line {
+     height: 1px;
+     width: 78px;
+     background: var(--gold)
+ }
+
+ .cross {
+     position: absolute;
+     top: -26px;
+     color: var(--gold);
+     font-size: 20px
+ }
+
+ .section-intro {
+     font: 400 22px/1.35 var(--serif);
+     text-align: center;
+     max-width: 760px;
+     margin: 0 auto 42px
+ }
+
+ .mission-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     max-width: 950px;
+     margin: auto
+ }
+
+ .mission-item {
+     text-align: center;
+     padding: 12px 32px;
+     border-right: 1px solid rgba(174, 149, 96, .5)
+ }
+
+ .mission-item:last-child {
+     border: 0
+ }
+
+ .line-icon {
+     font-size: 38px;
+     color: var(--gold);
+     line-height: 1
+ }
+
+ .mission-item h3 {
+     font: 600 27px var(--serif);
+     color: var(--burgundy);
+     margin: 8px 0 2px
+ }
+
+ .mission-item p {
+     margin: 0;
+     color: var(--muted);
+     font-size: 15px
+ }
+
+ .news-section {
+     padding-top: 30px;
+     background: linear-gradient(180deg, var(--ivory), #f3eee5)
+ }
+
+ .news-section .section-heading {
+     margin-bottom: 34px
+ }
+
+ .news-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 22px
+ }
+
+ .news-card {
+     background: var(--paper);
+     border: 1px solid #e8e0d4;
+     border-radius: 6px;
+     overflow: hidden;
+     box-shadow: 0 5px 18px rgba(53, 37, 24, .06)
+ }
+
+ .news-photo {
+     height: 205px;
+     display: block;
+     background-size: cover;
+     background-position: center
+ }
+
+ .photo-one {
+     background-image: linear-gradient(0deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .08)), url("https://fundacjapiusaix.pl/wp-content/uploads/2026/10/DSC03346-1024x576.jpg")
+ }
+
+ .photo-two {
+     background-image: linear-gradient(0deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .08)), url("https://fundacjapiusaix.pl/wp-content/uploads/2026/07/DSC01783-300x169.jpg");
+     background-position: 70% center
+ }
+
+ .photo-three {
+     background-image: url("https://fundacjapiusaix.pl/wp-content/uploads/2026/05/20260525_131345-300x225.jpg");
+     background-position: right center
+ }
+
+ .news-body {
+     padding: 17px 20px 20px
+ }
+
+ .news-body time {
+     font: italic 15px var(--serif);
+     color: var(--muted)
+ }
+
+ .news-body h3 {
+     font: 600 25px/1.05 var(--serif);
+     color: var(--burgundy);
+     margin: 7px 0
+ }
+
+ .news-body p {
+     font-size: 14px;
+     color: var(--muted);
+     margin: 0 0 12px
+ }
+
+ .text-link {
+     font-size: 13px;
+     font-weight: 700;
+     letter-spacing: .04em;
+     text-transform: uppercase;
+     color: var(--burgundy)
+ }
+
+ .text-link span {
+     font-size: 20px;
+     margin-left: 8px
+ }
+
+ .center {
+     text-align: center;
+     margin-top: 30px
+ }
+
+ .patron {
+     position: relative;
+     min-height: 440px;
+     display: flex;
+     align-items: center;
+     background: #eee7dc;
+     overflow: hidden
+ }
+
+ .patron-image {
+     position: absolute;
+     inset: 0 50% 0 0;
+    /* background: url("https://fundacjapiusaix.pl/wp-content/uploads/2023/03/pius-ix-tiara.jpg") center 25%/cover no-repeat;*/
+     background: url("Photos/logo.png") center 50%/cover no-repeat;
+     filter: sepia(.16)
+ }
+
+ .patron:after {
+     content: "";
+     position: absolute;
+     inset: 0;
+     background: linear-gradient(90deg, transparent 35%, #f7f4ed 62%)
+ }
+
+ .patron-inner {
+     position: relative;
+     z-index: 1;
+     display: flex;
+     justify-content: flex-end
+ }
+
+ .patron-copy {
+     width: 49%;
+     padding: 70px 0
+ }
+
+ .patron h2 {
+     font-size: clamp(32px, 4vw, 46px);
+     margin-bottom: 12px
+ }
+
+ .patron-copy p:not(.eyebrow) {
+     font: 400 21px/1.35 var(--serif);
+     max-width: 540px
+ }
+
+ .gold-rule {
+     color: var(--gold);
+     display: block;
+     margin: 10px 0 18px
+ }
+
+ .support {
+     position: relative;
+     background: var(--burgundy);
+     color: #fff;
+     text-align: center;
+     padding: 62px 0;
+     overflow: hidden
+ }
+
+ .support-bg {
+     position:absolute;
+     inset: 0;
+     background: linear-gradient(90deg, rgba(74, 19, 29, .96), rgba(100, 31, 43, .88)), url("https://fundacjapiusaix.pl/wp-content/uploads/2026/07/DSC00917-scaled.jpg") bottom/cover;
+     opacity: .9
+     
+ }
+
+ .support-content {
+     position: relative;
+     max-width: 760px
+ }
+
+ .support h2 {
+     color: #fff;
+     font-size: clamp(36px, 4vw, 50px);
+     text-transform: none;
+     letter-spacing: 0
+ }
+
+ .support p:not(.eyebrow) {
+     font: 400 21px/1.35 var(--serif);
+     margin: 0 auto 22px;
+     max-width: 690px
+ }
+
+ .support .ornament {
+     margin: 10px 0
+ }
+
+ .about {
+     background: var(--paper)
+ }
+
+ .about-layout {
+     display: grid;
+     grid-template-columns: 1fr 2fr;
+     gap: 70px;
+     align-items: start
+ }
+
+ .about h2 {
+     text-transform: none
+ }
+
+ .about-layout>div:nth-child(2)>p:first-child {
+     font: 400 23px/1.4 var(--serif);
+     margin-top: 0
+ }
+
+ .small-note {
+     font-size: 12px;
+     color: #81786e;
+     font-style: italic
+ }
+
+ .site-footer {
+     background: #eee8dc;
+     padding: 48px 0 18px;
+     border-top: 1px solid #d9ccb6
+ }
+
+ .footer-grid {
+     display: grid;
+     grid-template-columns: 1.25fr 1fr 1.5fr 1.4fr;
+     gap: 38px
+ }
+
+ .footer-grid h3 {
+     font: 600 23px var(--serif);
+     color: var(--burgundy);
+     margin: 0 0 12px
+ }
+
+ .footer-grid>div>a,
+ .footer-grid>div>p {
+     display: block;
+     font-size: 14px;
+     margin: 5px 0;
+     color: #50483f
+ }
+
+ .footer-brand {
+     align-self: start
+ }
+
+ .account {
+     font-weight: 700;
+     letter-spacing: .04em
+ }
+
+ .footer-bottom {
+     border-top: 1px solid #d4c7b2;
+     margin-top: 34px;
+     padding-top: 15px;
+     display: flex;
+     gap: 25px;
+     font-size: 12px;
+     color: #71685d
+ }
+
+ .footer-bottom a:first-of-type {
+     margin-left: auto
+ }
+
+ @media(max-width:980px) {
+     .header-inner {
+         min-height: 76px
+     }
+
+     .menu-toggle {
+         display: block;
+         background: none;
+         border: 1px solid var(--gold);
+         padding: 9px 12px;
+         color: var(--burgundy);
+         font: 600 14px var(--sans)
+     }
+
+     .main-nav {
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         right: 0;
+         background: var(--paper);
+         padding: 20px 24px 26px;
+         box-shadow: 0 10px 18px #0001;
+         flex-direction: column;
+         align-items: stretch
+     }
+
+     .main-nav.open {
+         display: flex
+     }
+
+     .main-nav .button {
+         align-self: flex-start
+     }
+
+     .hero {
+         min-height: 520px
+     }
+
+     .patron-image {
+         right: 43%
+     }
+
+     .patron-copy {
+         width: 55%
+     }
+
+     .footer-grid {
+         grid-template-columns: repeat(2, 1fr)
+     }
+ }
+
+ @media(max-width:650px) {
+     body {
+         font-size: 16px
+     }
+
+     .container {
+         width: min(100% - 34px, 540px)
+     }
+
+     .brand {
+         font-size: 17px
+     }
+
+     .brand-seal {
+         width: 36px;
+         height: 40px
+     }
+
+     .hero {
+         min-height: 580px;
+         align-items: flex-end
+     }
+
+     .hero-image {
+         background-position: 58% center
+     }
+
+     .hero-shade {
+         background: linear-gradient(0deg, rgba(20, 17, 15, .92), rgba(20, 17, 15, .48) 70%, rgba(20, 17, 15, .12))
+     }
+
+     .hero-content {
+         padding: 90px 0 54px
+     }
+
+     .hero h1 {
+         font-size: 52px
+     }
+
+     .hero-copy {
+         font-size: 20px
+     }
+
+     .hero-actions {
+         align-items: stretch;
+         flex-direction: column;
+         max-width: 290px
+     }
+
+     .section {
+         padding: 58px 0
+     }
+
+     .section-heading {
+         gap: 12px
+     }
+
+     .section-heading h2 {
+         font-size: 34px
+     }
+
+     .heading-line {
+         width: 35px
+     }
+
+     .section-intro {
+         font-size: 20px
+     }
+
+     .mission-grid,
+     .news-grid {
+         grid-template-columns: 1fr
+     }
+
+     .mission-item {
+         border-right: 0;
+         border-bottom: 1px solid rgba(174, 149, 96, .45);
+         padding: 22px 12px
+     }
+
+     .news-photo {
+         height: 220px
+     }
+
+     .patron {
+         padding-top: 250px
+     }
+
+     .patron-image {
+         inset: 0 0 auto;
+         height: 300px;
+         background-position: center 28%
+     }
+
+     .patron:after {
+         background: linear-gradient(180deg, transparent 0, #f7f4ed 290px, #f7f4ed 100%)
+     }
+
+     .patron-inner {
+         justify-content: flex-start
+     }
+
+     .patron-copy {
+         width: 100%;
+         padding: 20px 0 48px
+     }
+
+     .patron h2 {
+         font-size: 36px
+     }
+
+     .support {
+         padding: 54px 0
+     }
+
+     .about-layout {
+         grid-template-columns: 1fr;
+         gap: 18px
+     }
+
+     .footer-grid {
+         grid-template-columns: 1fr;
+         gap: 24px
+     }
+
+     .footer-bottom {
+         flex-wrap: wrap;
+         gap: 12px
+     }
+
+     .footer-bottom a:first-of-type {
+         margin-left: 0
+     }
+
+     .footer-bottom span {
+         width: 100%
+     }
+ }
+
+ /* POPRAWKI UKŁADU STRONY FUNDACJI */
+
+.patron h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    max-width: 650px;
+}
+
+.news-section .section-heading {
+    margin-bottom: 42px;
+}
+
+.news-card {
+    height: 100%;
+}
+
+.about {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+@media (max-width: 768px) {
+    .patron h2 {
+        font-size: 2.2rem;
+    }
+
+    .about {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+}
+/* ===== PODSTRONA O FUNDACJI ===== */
+
+.page-about {
+    padding: 85px 0 100px;
+    background: var(--ivory);
+}
+
+.page-about .eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.page-about .page-title {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.08;
+    color: var(--burgundy);
+    margin: 0 0 28px;
+}
+
+.page-about .page-intro {
+    max-width: 780px;
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+.page-about .gold-divider {
+    width: 75px;
+    height: 1px;
+    background: var(--gold);
+    margin: 35px 0;
+}
+/* =====================================
+   PODSTRONA O FUNDACJI
+===================================== */
+
+/* Górny nagłówek */
+.page-hero {
+    background: #eee8dc;
+    padding: 85px 0 75px;
+    text-align: center;
+    border-bottom: 1px solid rgba(174,149,96,.25);
+}
+
+.page-hero .eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.page-hero h1 {
+     font-family: var(--serif);
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 400;
+    color: var(--burgundy);
+    margin: 20px 0;
+}
+
+.page-hero p {
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Historia Fundacji */
+.about-intro {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 75px;
+    align-items: start;
+}
+
+.about-layout h2 {
+    font-family: var(--serif);
+    font-size: 43px;
+    font-weight: 400;
+    color: var(--burgundy);
+    margin-top: 18px;
+}
+
+.about-text p {
+    margin-bottom: 22px;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* Nasze cele */
+.mission-section {
+    background: #eee8dc;
+    padding: 85px 0;
+}
+
+.mission-section .mission-item {
+    padding: 35px 25px;
+    background: var(--paper);
+    border: 1px solid rgba(174,149,96,.3);
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.mission-section .mission-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(53,37,24,.08);
+}
+
+.mission-section .mission-item h3 {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 400;
+    color: var(--burgundy);
+}
+
+/* Fundusz Stypendialny */
+.scholarship-section {
+    padding: 95px 0;
+}
+
+.scholarship-section .about-layout {
+    align-items: center;
+}
+
+.scholarship-section .button {
+    margin-top: 20px;
+}
+
+/* Fundatorzy */
+.founders-section {
+    background: #eee8dc;
+    padding: 85px 0;
+}
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.founder-card {
+    background: var(--paper);
+    padding: 35px 28px;
+    border: 1px solid rgba(174,149,96,.35);
+    border-top: 3px solid var(--gold);
+}
+
+.founder-card h3 {
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--burgundy);
+    margin-bottom: 22px;
+}
+
+.founder-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+/* Wersja mobilna */
+@media (max-width: 800px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .founders-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero {
+        padding: 60px 0;
+    }
+
+    .about-intro,
+    .scholarship-section {
+        padding: 60px 0;
+    }
+
+    .mission-section,
+    .founders-section {
+        padding: 60px 0;
+    }
+
+    .about-layout h2 {
+        font-size: 36px;
+    }
+}
+/* =====================================
+   PODSTRONA BŁOGOSŁAWIONY PIUS IX
+===================================== */
+
+.pius-hero {
+    background: var(--ivory);
+    text-align: center;
+    padding: 85px 0 65px;
+    border-bottom: 1px solid rgba(174,149,96,.3);
+}
+
+.pius-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 400;
+    color: var(--burgundy);
+    margin: 20px 0;
+}
+
+.pius-lead {
+    max-width: 760px;
+    margin: 25px auto 0;
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+.gold-divider {
+    width: 75px;
+    height: 1px;
+    background: var(--gold);
+    margin: 28px auto;
+}
+
+/* PORTRET I WPROWADZENIE */
+
+.pius-intro {
+    padding: 85px 0;
+}
+
+.pius-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) 1.4fr;
+    gap: 65px;
+    align-items: start;
+}
+
+.pius-image img {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--gold);
+    padding: 8px;
+    background: white;
+}
+
+.pius-image span {
+    display: block;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 15px;
+}
+
+.pius-intro-text h2,
+.pius-reading h2 {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--burgundy);
+    line-height: 1.2;
+    margin: 18px 0 28px;
+}
+
+.pius-intro-text p,
+.pius-reading p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 23px;
+}
+
+/* SEKCJE BIOGRAFII */
+
+.pius-history {
+    background: #eee8dc;
+    padding: 75px 0;
+}
+
+.pius-poland {
+    background: var(--ivory);
+    padding: 85px 0;
+}
+
+.pius-reading {
+    max-width: 850px;
+}
+
+/* CYTATY */
+
+.pius-intro blockquote,
+.pius-reading blockquote {
+    border-left: 3px solid var(--gold);
+    margin: 35px 0;
+    padding: 15px 25px;
+    font-family: var(--serif);
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--burgundy);
+}
+
+/* BEATYFIKACJA */
+
+.pius-beatification {
+    background: #eee8dc;
+    padding: 85px 0;
+}
+
+/* ŹRÓDŁO */
+
+.pius-source {
+    background: var(--ivory);
+    padding: 35px 0;
+    border-top: 1px solid rgba(174,149,96,.3);
+}
+
+.pius-source p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.pius-source a {
+    color: var(--burgundy);
+    text-decoration: underline;
+}
+
+/* TELEFONY I TABLETY */
+
+@media (max-width: 800px) {
+
+    .pius-hero {
+        padding: 60px 0 45px;
+    }
+
+    .pius-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .pius-image {
+        max-width: 430px;
+        margin: 0 auto;
+    }
+
+    .pius-intro,
+    .pius-poland,
+    .pius-beatification {
+        padding: 55px 0;
+    }
+
+    .pius-history {
+        padding: 55px 0;
+    }
+
+    .pius-intro-text h2,
+    .pius-reading h2 {
+        font-size: 32px;
+    }
+
+    .pius-intro blockquote,
+    .pius-reading blockquote {
+        font-size: 19px;
+        padding-left: 18px;
+    }
+}
+/* =========================
+   ARCHIWUM AKTUALNOŚCI
+========================= */
+
+.news-archive {
+    background: var(--ivory);
+}
+
+.news-archive .section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.news-archive .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    align-items: start;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.news-card {
+    background: #fff;
+    border: 1px solid rgba(174, 149, 96, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.news-card-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-card-content {
+    padding: 25px;
+}
+
+.news-card-date {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.news-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    line-height: 1.2;
+    color: var(--burgundy);
+    margin: 12px 0;
+}
+
+.news-card p {
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.news-card-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--burgundy);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.news-card-link:hover {
+    color: var(--gold);
+}
+
+/* Wersja mobilna */
+
+@media (max-width: 900px) {
+    .news-archive .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .news-archive .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-card-image {
+        height: 220px;
+    }
+}
+.news-card p {
+    font-family: var(--sans);
+}
+
+.news-card-date {
+    font-family: var(--sans);
+}
+
+.news-card-link {
+    font-family: var(--sans);
+}
+/* PAGINACJA AKTUALNOŚCI */
+
+.news-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 55px;
+    flex-wrap: wrap;
+}
+
+.pagination-link {
+    display: inline-block;
+    padding: 10px 15px;
+    color: var(--burgundy);
+    border: 1px solid rgba(174, 149, 96, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.pagination-link:hover,
+.pagination-active {
+    background: var(--burgundy);
+    color: white;
+    border-color: var(--burgundy);
+}
+
+.pagination-dots {
+    color: var(--gold);
+}
+
+@media (max-width: 600px) {
+    .news-pagination {
+        gap: 7px;
+    }
+
+    .pagination-link {
+        padding: 8px 11px;
+        font-size: 13px;
+    }
+}
+/* =========================================
+   POLITYKA PRYWATNOŚCI
+========================================= */
+
+.policy-hero {
+    background: var(--burgundy);
+    color: var(--ivory);
+    text-align: center;
+    padding: 65px 20px 60px;
+}
+
+.policy-hero .eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.policy-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 58px);
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+/* GŁÓWNY KONTENER */
+
+.policy-container {
+    max-width: 1000px;
+    margin: 65px auto 85px;
+    padding: 0 25px;
+}
+
+/* KARTA Z TREŚCIĄ */
+
+.policy-content {
+    background: var(--paper);
+    padding: 55px 65px;
+    border: 1px solid rgba(174, 149, 96, 0.3);
+    box-shadow: 0 12px 36px rgba(45, 34, 24, 0.04);
+}
+
+/* AKAPITY */
+
+.policy-content p {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--ink);
+    margin-bottom: 18px;
+}
+
+/* WSTĘP */
+
+.policy-content .policy-intro {
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+/* NAGŁÓWKI */
+
+.policy-content h2 {
+    font-family: var(--serif);
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--burgundy);
+    margin-top: 42px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(174, 149, 96, 0.4);
+}
+
+/* LISTY */
+
+.policy-content ul {
+    padding-left: 25px;
+    margin-bottom: 22px;
+}
+
+.policy-content li {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 7px;
+    padding-left: 5px;
+}
+
+.policy-content li::marker {
+    color: var(--gold);
+}
+
+/* LINKI */
+
+.policy-content a {
+    color: var(--burgundy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+}
+
+.policy-content a:hover {
+    color: var(--gold);
+}
+
+/* DATA AKTUALIZACJI */
+
+.policy-content .policy-date {
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(174, 149, 96, 0.35);
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* STOPKA */
+
+.site-footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+/* WERSJA MOBILNA */
+
+@media (max-width: 768px) {
+
+    .policy-hero {
+        padding: 48px 20px;
+    }
+
+    .policy-container {
+        margin: 35px auto 50px;
+        padding: 0 15px;
+    }
+
+    .policy-content {
+        padding: 28px 22px;
+    }
+
+    .policy-content h2 {
+        font-size: 25px;
+        margin-top: 32px;
+    }
+
+    .policy-content p,
+    .policy-content li {
+        font-size: 14px;
+    }
+
+}
