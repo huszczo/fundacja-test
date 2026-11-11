@@ -989,7 +989,7 @@
 ===================================== */
 
 .pius-hero {
-    background: var(--ivory);
+    background: #eee8dc;
     text-align: center;
     padding: 85px 0 65px;
     border-bottom: 1px solid rgba(174,149,96,.3);
@@ -1312,8 +1312,8 @@
 ========================================= */
 
 .policy-hero {
-    background: var(--burgundy);
-    color: var(--ivory);
+    background: #eee8dc;
+    color: var(--burgundy);
     text-align: center;
     padding: 65px 20px 60px;
 }
